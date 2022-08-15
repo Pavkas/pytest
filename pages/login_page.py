@@ -1,6 +1,5 @@
 from .base_page import BasePage
-from .locators import MainPageLocators
-from pages.main_page import MainPage
+from .locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
@@ -11,14 +10,14 @@ class LoginPage(BasePage):
 
     def should_be_login_url(self):
         # реализуйте проверку на корректный url адрес
-        assert 'login' in self.browser.current_url
+        assert 'login' in self.browser.current_url, "login not in url "
 
     def should_be_login_form(self):
         # реализуйте проверку, что есть форма логина
-        assert self.is_element_present(*MainPageLocators.input_login_email), "login-username is not presented"
-        assert self.is_element_present(*MainPageLocators.input_login_password), "login-password is not presented"
+        assert self.is_element_present(*LoginPageLocators.input_login_email), "login-username is not presented"
+        assert self.is_element_present(*LoginPageLocators.input_login_password), "login-password is not presented"
     def should_be_register_form(self):
         # реализуйте проверку, что есть форма регистрации на странице
-        assert self.is_element_present(*MainPageLocators.input_registration_email), "registration-email is not presented"
-        assert self.is_element_present(*MainPageLocators.input_registration_password1), "registration-password1 is not presented"
-        assert self.is_element_present(*MainPageLocators.input_registration_password2), "registration-password2 is not presented"
+        assert self.is_element_present(*LoginPageLocators.input_registration_email), "registration-email is not presented"
+        assert self.is_element_present(*LoginPageLocators.input_registration_password_1), "registration-password1 is not presented"
+        assert self.is_element_present(*LoginPageLocators.input_registration_password_2), "registration-password2 is not presented"
